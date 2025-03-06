@@ -1,32 +1,43 @@
 public class Main {
     public static void main(String[] args) {
-        Figure geom[] = new Figure[4];
-        geom[0] = new Line();
-        geom[1] = new Triangle();
-        geom[2] = new Rectangle();
-        geom[3] = new Ellipse();
+        Line line = new Line();
+        line.showId();
     }
 }
 
-class Geom{
-    int id;
-}
-
-class Figure extends Geom{
+class Figure {
     int width;
     int color;
+    int id = 1;
 
     Figure() {
-        System.out.println("Конструктор Figure");
+        System.out.println("Конструктор Figure()");
+    }
+
+    Figure(int width, int color){
+        this.width = width;
+        this.color = color;
+        System.out.println("Конструктор Figure(width, color)");
+    }
+
+    void showId(){
+        System.out.println("id = " + id);
     }
 }
 
 class Line extends Figure {
     double x1, y1;
     double x2, y2;
+    int id = 2;
 
     Line(){
-        System.out.println("Конструктор Line");
+        super(0,0);
+        System.out.println("Конструктор Line()");
+    }
+
+    void showId(){
+        super.showId();
+        System.out.println("id = " + id);
     }
 }
 
